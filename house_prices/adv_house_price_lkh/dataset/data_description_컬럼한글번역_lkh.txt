@@ -1,0 +1,141 @@
+● 날짜 관련
+  - ['YearBuilt','YearRemodAdd','GarageYrBlt','MoSold','YrSold']
+
+● 집 총평
+  - Overall 1 ~10
+  - Qual , QC, Qu, Cond {'Ex':5,'Gd':4,'TA':3,'Fa':2,'Po':1,'NA':0}
+  - ['OverallQual','OverallCond','KitchenQual','HeatingQC','FireplaceQu','ExterQual','ExterCond','BsmtQual','BsmtCond','GarageQual','GarageCond','PoolQC']
+
+● 판매 관련
+  - ['SaleType','SaleCondition','MSSubClass','MSZoning','BldgType','HouseStyle','Functional']
+  - MSSubClass(판매유형), MSZoning(용도구분), BldgType(주거유형), HouseStyle(주거스타일), 홈기능(Functional)
+
+● 전용면적
+  - ['GrLivArea','1stFlrSF','2ndFlrSF','LotArea','LandSlope','LandContour']
+  - Lot*,  GrLivArea(1stFlrSF,2ndFlrSF,LotArea), LandSlope(기울기), LandContour(평평도)
+
+● 내부시설(구조물갯수,난방)
+  - ['TotRmsAbvGrd','Bedroom','FullBath','HalfBath','Kitchen','Utilities','Heating','HeatingQC','Fireplaces','CentralAir','Electrical']
+
+● 외부시설
+  - porch*, WoodDeckSF
+  - 지하실 : Bsmt*
+  - 차고지: Garage*
+  - 공사진행여부 ['LowQualFinSF','BsmtFinSF1','BsmtFinSF2','BsmtUnfSF']
+  - 기타자산 Pool, Mise ['PoolArea','PoolQC','MiscVal','MiscFeature']
+
+● 외장재
+  - Exter* , MasVnr*, FenseRoof
+
+● 도로
+  - 포장 : Street, PavedDrive, Alley
+  - 접근성 : Condition1, Condition2, Neighborhood
+
+
+
+
+
+-------------------------------- 판매유형
+SaleType: 판매 유형
+MSZoning: 판매의 일반 구역 분류를 식별합니다.
+MSSubClass: 판매와 관련된 주거 유형을 식별합니다.
+BldgType: 주거 유형
+HouseStyle: 주거 스타일
+Functional: 홈 기능(공제가 필요한 경우가 아니면 일반적으로 가정)
+Utilities: 사용 가능한 유틸리티 유형
+------------------------------ 조건
+SaleCondition: 판매조건
+Condition1: 다양한 조건에 근접
+Condition2: 다양한 조건에 대한 근접성(둘 이상의 조건이 있는 경우)
+
+------------------------------ 건설일자 관련
+YearBuilt: 원래 건설 날짜                                 ********** corr 4
+YearRemodAdd: 리모델링일(개조 및 증축이 없을 경우 공사일과 동일)********** corr 6
+GarageYrBlt: 차고가 건설된 해                              ********** corr 8
+YrSold: 판매 연도(YYYY)
+MoSold: 월 판매(MM)
+
+
+-------------------------------- 집의 전체적 품질 관련 평가 항목
+OverallQual: 집의 전체 자재 및 마감을 평가합니다. -----자재 ********** corr 1
+OverallCond: 집의 전반적인 상태를 평가합니다  ---------전체상태
+ExterQual: 외장재의 품질을 평가합니다. ---------------외장재
+ExterCond : 외장재의 현황을 평가
+LowQualFinSF: 저품질 마감 평방 피트(모든 층)  --------내부시설
+KitchenQual: 주방 품질 ----------------------------주방
+HeatingQC: 난방 품질 및 상태------------------------난방시설
+FireplaceQu: 벽난로 품질
+BsmtQual: 지하실의 높이를 평가합니다.  ---------------지하실
+BsmtCond: 지하실의 일반적인 상태를 평가합니다.
+GarageQual: 차고 품질 -----------------------------차고
+GarageCond: 차고 상태
+PoolQC: 수영장 품질 -------------------------------수영장
+Fence: 울타리 품질 --------------------------------베란다
+
+--------------------------------- 외부 시설---차고
+GarageCars: 차고의 차고 크기        *********** corr 2
+GarageArea: 평방 피트의 차고 크기    *********** corr 5
+GarageType: 차고 위치
+GarageFinish: 차고의 인테리어 마감
+--------------------------------- 내부 시설---방
+GrLivArea: 지상(지상) 거실 면적 평방 피트  ************ corr 3
+1stFlrSF: 1층 평방피트
+2ndFlrSF: 2층 평방피트
+TotRmsAbvGrd: 등급 이상의 총 방(화장실 제외)
+Bedroom: 학년 이상의 침실(지하 침실은 포함하지 않음)
+
+--------------------------------- 내부 시설---욕실
+FullBath: 등급 이상의 전체 욕실  ************ corr 7
+BsmtFullBath: 지하 전체 욕실
+HalfBath: 학년 이상의 반 목욕
+BsmtHalfBath: 지하실 반쪽 욕실
+
+--------------------------------- 내부 시설---지하실
+TotalBsmtSF: 지하 면적의 총 평방 피트 *********** corr 9
+BsmtFinType1: 지하실 마감 면적 등급
+BsmtFinSF1: 유형 1 완성된 평방 피트
+BsmtFinType2: 지하실 마감 면적 등급(복수 유형인 경우)
+BsmtFinSF2: 유형 2 완성된 평방 피트
+BsmtUnfSF: 지하실의 미완성 평방 피트
+BsmtExposure: 파업 또는 정원 수준의 벽을 나타냅니다.
+
+
+-------------------------------- 인접도
+LotFrontage: 부동산에 연결된 거리의 선형 피트
+LotArea: 로트 크기(제곱피트)
+LotConfig: 로트 구성
+LotShape: 속성의 일반적인 모양
+
+Street: 부동산에 대한 도로 접근 유형
+Alley:부동산에 접근하는 골목의 유형
+PavedDrive: 포장된 차도
+Neighborhood:  Ames 시 경계 내의 물리적 위치
+--------------------------------- 토지유형
+LandContour: 속성의 평탄도
+LandSlope: 속성의 기울기
+
+--------------------------------- 내부 시설---주방
+Kitchen: 등급 이상의 주방
+--------------------------------- 내부 시설---난방
+Heating: 난방 유형
+CentralAir: 중앙 에어컨
+Electrical: 전기 시스템
+Fireplaces: 벽난로의 수
+
+--------------------------------- 외부 시설---외장재
+RoofStyle: 지붕 유형
+RoofMatl: 지붕 재료
+Exterior1st: 집의 외부 덮개
+Exterior2nd: 주택의 외부 덮개(두 개 이상의 재료인 경우)
+MasVnrType: 석조 베니어 유형
+MasVnrArea: 석조 베니어판 면적(제곱피트)
+Foundation: 기초 유형
+--------------------------------- 외부 시설---베란다
+WoodDeckSF: 평방 피트의 목재 데크 면적
+OpenPorchSF: 평방 피트의 오픈 베란다 영역
+EnclosedPorch: 제곱피트의 밀폐된 베란다 영역
+ScreenPorch: 스크린 베란다 면적(제곱피트)
+3SsnPorch: 3계절 베란다 면적(제곱피트)
+
+--------------------------------- 외부 시설---수영장
+PoolArea: 평방 피트의 수영장 면적  ------------- corr

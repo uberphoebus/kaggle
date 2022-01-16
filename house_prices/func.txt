@@ -1,0 +1,69 @@
+
+#--------------------------------------------------------
+# 특정 피쳐와 관계된 상관도 분석 topN
+#--------------------------------------------------------
+def corr_col(df, col, n = 10, chart=False):
+    corr_df = train.corr().nlargest(n, col)
+    top_corr_large = corr_df.index
+    print(f'{col} 피쳐와 (+)상관관계 TOP-{n} \n {top_corr_large.values.tolist()}')
+    for c in top_corr_large:
+        if c != col:
+            print(f'{c}\t\t {corr_df.loc[col][c]:.2f}')
+   
+
+    corr_df = df.corr().nsmallest(5, col)
+    top_corr_small = corr_df.index
+    top_corr_small = np.append(top_corr_small.values, col)    
+    print("target 피쳐와 (-) 상관관계 TOP-n\n", top_corr_small.tolist())
+    corr_df = train[top_corr_small].corr()
+    for c in top_corr_small:
+        if c != col:
+            print(f'{c}\t\t {corr_df.loc[col][c]:.2f}')
+    
+    if chart == True :  
+        f, (ax1, ax2) = plt.subplots(1, 2, figsize=(20,5))
+        sns.heatmap(train[top_corr_large].corr(), annot=True, cmap='Blues', fmt='0.2f' , ax=ax1)
+        sns.heatmap(train[top_corr_small].corr(), annot=True, cmap='Reds', fmt='0.2f' , ax=ax2)
+        plt.show()
+        
+corr_col(train, 'SalePrice', 5, chart=True)
+
+#--------------------------------------------------------
+# dataframe 전체/조건에 맞게 프레임 보기
+#--------------------------------------------------------
+def check(df):
+    #print(df.isna().sum()[df.isna().sum()>0].sort_values(ascending=False).index.values.tolist())
+    df = train.copy()
+    nan_df = pd.DataFrame({"col": df.columns, 
+                           "nan_cnt":df.isna().sum() , 
+                           "rate":np.round(df.isna().sum() / df.shape[0],2)*100
+                          })
+    #nan_df = nan_df[nan_df['nan_cnt']>0]
+    nan_df = nan_df.sort_values(by='nan_cnt', ascending=False)
+    nan_df['dtype'] = [df[col].dtypes for col in nan_df.index]
+    nan_df['nunique'] = [df[col].nunique() for col in nan_df.index]
+    nan_df['unique'] = [','.join(map(str, df[col].unique()[:10])) for col in nan_df.index]
+    return nan_df
+
+
+#---- 사용예(전체보기)
+res_df = check(train)
+
+#---- 사용예(조건검색)
+res_df = check(train)
+print(res_df[res_df.index.str.contains('bsmt', case=False)])
+
+#---- 사용예(복잡하게 조건검색한 결과 람다 적용해보기)
+# res_df['구분'] = res_df[ (res_df['dtype']!='object') ].apply(lambda x: '수치' if x['nunique']>61 else "xx", axis=1)
+
+
+#--------------------------------------------------------
+# dataframe 피쳐 이름 Like 검색
+#--------------------------------------------------------
+def like(df, *search_str):
+    for str in search_str:        
+        col_list = train.columns[train.columns.str.contains(str, case=False)]
+        for col in col_list:
+            print(f'{col} \t\t {df[col].unique()[:10]}') 
+        print("--"*30)
+like(train, 'Area')

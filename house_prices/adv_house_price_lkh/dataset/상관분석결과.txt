@@ -1,0 +1,85 @@
+
+10	OverallQual	SalePrice		0.791  ---------------------
+8	OverallQual	GarageCars	0.601
+
+5	OverallQual	GrLivArea		0.593
+2	OverallQual	YearBuilt		0.572
+9	OverallQual	GarageArea	0.562
+
+
+3	OverallQual	YearRemodAdd	0.551
+6	OverallQual	FullBath		0.551
+7	OverallQual	GarageYrBlt	0.548
+4	OverallQual	TotalBsmtSF	0.538
+
+36	GrLivArea		TotRmsAbvGrd	0.825  ---------------------
+37	GrLivArea		SalePrice		0.709  ---------------------
+34	GrLivArea		FullBath		0.630
+35	GrLivArea		BedroomAbvGr	0.521
+
+
+47	GarageCars	GarageArea	0.882  ---------------------
+49	GarageCars	SalePrice		0.640
+48	GarageCars	GarageQual	-0.544
+
+50	GarageArea	SalePrice		0.623
+
+26	TotalBsmtSF	1stFlrSF		0.820  ---------------------
+27	TotalBsmtSF	SalePrice		0.614
+
+29	1stFlrSF		SalePrice		0.606
+28	1stFlrSF		GrLivArea		0.566
+
+39	FullBath	SalePrice	0.561
+38	FullBath	TotRmsAbvGrd		0.555
+
+41	TotRmsAbvGrd	SalePrice		0.534
+
+13	YearBuilt		GarageYrBlt	0.826  ---------------------
+11	YearBuilt		YearRemodAdd	0.593
+14	YearBuilt		GarageCars	0.538
+15	YearBuilt		SalePrice		0.523
+12	YearBuilt		Foundation	-0.648
+
+17	YearRemodAdd	GarageYrBlt	0.642  ---------------------
+18	YearRemodAdd	SalePrice		0.507
+16	YearRemodAdd	HeatingQC	-0.550
+
+45	GarageYrBlt	GarageCars	0.589
+46	GarageYrBlt	GarageArea	0.565
+
+
+
+
+            MasVnrArea  			----------------
+
+42	Fireplaces		FireplaceQu	0.724  ---------------------
+
+19	RoofStyle		RoofMatl		0.510
+52	PoolArea		PoolQC		0.938  ---------------------
+53	MiscFeature	MiscVal		0.548
+0	MSSubClass	BldgType		0.771  ---------------------
+
+1	LandContour	LandSlope	0.507
+
+
+43	GarageType	GarageQual	0.613
+44	GarageType	GarageCond	0.509
+
+51	GarageQual	GarageCond	0.838  ---------------------
+
+22	Foundation	GarageYrBlt	-0.592
+
+20	Exterior1st	Exterior2nd	0.750  ---------------------
+21	ExterQual		KitchenQual	0.528
+
+25	BsmtFinType2	BsmtFinSF2	0.730  ---------------------
+24	BsmtFinSF1	BsmtFullBath	0.649  ---------------------
+23	BsmtFinSF1	TotalBsmtSF	0.522
+
+40	BedroomAbvGr	TotRmsAbvGrd	0.677  ---------------------
+
+30	2ndFlrSF		GrLivArea		0.688
+33	2ndFlrSF		TotRmsAbvGrd	0.616
+31	2ndFlrSF		HalfBath		0.610
+32	2ndFlrSF		BedroomAbvGr	0.503
